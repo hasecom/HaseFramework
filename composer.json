@@ -1,0 +1,17 @@
+{
+    "name": "hasegawatakuma/hase-framework",
+    "authors": [
+        {
+            "name": "hasecom",
+            "email": "hasetennisth@gmail.com"
+        }
+    ],
+    "require": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
