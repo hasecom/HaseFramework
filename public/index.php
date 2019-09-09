@@ -4,11 +4,20 @@
 /// はじめに読み込まれる
 /// </summary>
 require __DIR__.'/../vendor/autoload.php';
-use App\kernel\kernel;
-use App\Controllers\welcomeController;
 
-$aa = new welcomeController();
-echo json_encode($aa->Index());
-$aaa =new kernel();
-$aaa->sample();
+/// <summary>
+/// ●ユーザ設定
+/// ドメインに変更してください。
+///　設定以下のURLがルーティンされます。
+/// 例 ) example.com/
+/// </summary>
+const DOMAIN = "http://127.0.0.1/HaseFramework/";
+use App\kernel\kernel;
+
+"<pre>";
+var_dump($_SERVER);
+var_dump($_REQUEST);
+"</pre>";
+(new kernel())->request(DOMAIN);
+
 ?>

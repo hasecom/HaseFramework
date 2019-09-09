@@ -1,8 +1,12 @@
 <?php 
 namespace App\Auth\Access;
 trait AuthorizesRequest{
-     function sample(){
-        return "an";
+    ///　<summary>
+    /// URLルーティング
+    /// 引数：ルーティンパス,返す値
+    /// </summary>
+     function View(){
+        return "anmkmmjj";
     }
 }
 
