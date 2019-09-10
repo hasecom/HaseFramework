@@ -10,12 +10,11 @@
 
     },
     "autoload": {
-       
         "psr-4": {
             "App\\":"app/",
             "Public\\":"public/",
-            "resource\\":"resource/",
-            "routes\\":"routes/"
+            "Resource\\":"resource/",
+            "Routes\\":"routes/"
         }
     }
 }

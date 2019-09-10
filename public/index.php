@@ -14,10 +14,7 @@ require __DIR__.'/../vendor/autoload.php';
 const DOMAIN = "http://127.0.0.1/HaseFramework/";
 use App\kernel\kernel;
 
-"<pre>";
-var_dump($_SERVER);
-var_dump($_REQUEST);
-"</pre>";
+
 (new kernel())->request(DOMAIN);
 
 ?>

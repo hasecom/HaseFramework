@@ -5,8 +5,8 @@ trait AuthorizesRequest{
     /// URLルーティング
     /// 引数：ルーティンパス,返す値
     /// </summary>
-     function View(){
-        return "anmkmmjj";
+     function View($request){
+        return include __DIR__.'/../../../resource/view/'.$request.'.php';
     }
 }
 

@@ -1,7 +1,9 @@
 <?php 
 namespace App\kernel;
-include __DIR__.'/../../routes/routes.php';
-use App\routes\routes;
+use Routes\sorts;
+use Routes\route;
+
+
     ///　<summary>
     /// HaseFrameworkの中心クラス
     /// リクエストを順に実行
@@ -9,10 +11,8 @@ use App\routes\routes;
 class kernel{
     public function request($domain){
         /// ルーティン設定
-        echo (new routes($domain))->get();
-        //(new route())->get("a");
-        /// コントローラ呼び出し
-        return include __DIR__.'/../../resource/view/welcome.php';
+        route::$requestURI = (new sorts($domain))->getRequestURI();
+        include __DIR__.'/../../routes/web.php';
     }
 }
 ?>
