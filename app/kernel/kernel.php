@@ -12,7 +12,7 @@ class kernel{
     public function request($domain){
         /// ルーティン設定
         route::$requestURI = (new sorts($domain))->getRequestURI();
-        include __DIR__.'/../../routes/web.php';
+        return __DIR__.'/../../routes/web.php';
     }
 }
 ?>

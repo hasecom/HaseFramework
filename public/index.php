@@ -15,6 +15,6 @@ const DOMAIN = "http://127.0.0.1/HaseFramework/";
 use App\kernel\kernel;
 
 
-(new kernel())->request(DOMAIN);
+include (new kernel())->request(DOMAIN);
 
 ?>

@@ -13,10 +13,10 @@ class route{
         $namespace =str_replace("-","\\","App-Controllers-");
         $class = $namespace.$ctr[0];
         $func = $ctr[1];
-        echo (new $class)->$func();
+        return (new $class)->$func();
         die;
       }
-      die("404");
+
     }
 
     protected static function post(){
