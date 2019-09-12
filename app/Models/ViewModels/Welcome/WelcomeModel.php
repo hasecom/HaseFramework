@@ -1,5 +1,5 @@
 <?php 
-namespace App\Models\Welcome;
+namespace App\Models\ViewModels\Welcome;
 use App\Models\Model;
 class WelcomeModel extends Model{
     public $Title;

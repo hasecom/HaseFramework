@@ -1,5 +1,4 @@
 <?php 
-
 /// <summary>
 /// はじめに読み込まれる
 /// </summary>
@@ -13,8 +12,6 @@ require __DIR__.'/../vendor/autoload.php';
 /// </summary>
 const DOMAIN = "http://127.0.0.1/HaseFramework/";
 use App\kernel\kernel;
-
-
+include './common.php';
 include (new kernel())->request(DOMAIN);
-
 ?>

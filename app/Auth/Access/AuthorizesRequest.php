@@ -5,8 +5,10 @@ trait AuthorizesRequest{
     /// URLルーティング
     /// 引数：ルーティンパス,返す値
     /// </summary>
-     function View($request,$mdl = null){
-        $mdl =json_encode($mdl);
+     function View($request,$MODEL = null){
+         $MODEL_NAME = explode('\\',get_class($MODEL));
+         $MODEL_NAME = end($MODEL_NAME);
+         ${$MODEL_NAME} = $MODEL;
         return include __DIR__.'/../../../resource/view/'.$request.'.php';
     }
 }

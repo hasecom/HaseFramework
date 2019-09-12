@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HaseFramework</title>
+    <style>
+        .title{
+            font-size:30px;
+            text-align: center;
+        }
+    </style>
 </head>
-<body>
-    <?php echo $mdl; ?>
-    こんにちは<br>
+<body><?php echo $WelcomeModel->Title; ?>
+    <div class="title">
+        こんにちは,「HaseFramework」です。
+    <div>
 </body>
 </html>

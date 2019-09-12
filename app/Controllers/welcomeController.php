@@ -1,11 +1,11 @@
 <?php
 namespace App\Controllers;
-use App\Models\Welcome\WelcomeModel;
+use App\Models\ViewModels\Welcome\WelcomeModel;
 class welcomeController extends Controller{
     public function Index(){
-        $inMdl = new WelcomeModel();
-        $inMdl->Title = "aaa";
-        return $this->View("welcome",$inMdl);
+        $mdl = new WelcomeModel();
+        $mdl->Title = "a";
+        return $this->View("welcome",$mdl);
     }
 }
 ?>
