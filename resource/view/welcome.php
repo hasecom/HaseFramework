@@ -13,7 +13,8 @@
 </head>
 <body><?php echo $WelcomeModel->Title; ?>
     <div class="title">
-        こんにちは,「HaseFramework」です。あ
+        こんにちは,「HaseFramework」です。あび
+        
     <div>
 </body>
 </html>
