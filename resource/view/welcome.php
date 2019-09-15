@@ -11,7 +11,7 @@
         }
     </style>
 </head>
-<body><?php echo $WelcomeModel->Title; ?>
+<body>
     <div class="title">
         こんにちは,「HaseFramework」です。
     <div>
