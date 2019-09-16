@@ -2,7 +2,14 @@
 namespace App\DataBase;
 use \PDO;
 /**
- * DataBaseに接続して値を受け取る
+* DataBaseに接続し、値を取得・更新・削除します。
+*
+* Set.phpからデータベースの接続情報を参照し、
+* Conditions.phpで生成したSQL文を実行して値の取得・更新等を行います。
+*
+* @param  リクエストするsql文
+* @param  whereを使用する際のbindParam (デフォルト値 = null)
+* @return データベースの情報をJSON形式で返却します。
 */
 trait Connection{
 

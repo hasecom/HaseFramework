@@ -5,7 +5,7 @@ trait Options {
     protected $table;
     protected $column=[];
 
-    public static function Table($table){
+    public static function table($table){
         return (new Conditions($table));
     }           
 

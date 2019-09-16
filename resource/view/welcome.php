@@ -14,7 +14,6 @@
 <body>
     <div class="title">
         こんにちは,「HaseFramework」です。
-        
     <div>
 </body>
 </html>
