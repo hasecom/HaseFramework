@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="title">
-        こんにちは,「HaseFramework」です。あび
+        こんにちは,「HaseFramework」です。
         
     <div>
 </body>
