@@ -6,5 +6,7 @@ class WelcomeModel extends Model
     public $Title;
     public $Id;
 
+    public $Users;
+
 }
 ?>
