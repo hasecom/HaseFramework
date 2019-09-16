@@ -10,6 +10,7 @@ use \PDO;
 * @param  リクエストするsql文
 * @param  whereを使用する際のbindParam (デフォルト値 = null)
 * @return データベースの情報をJSON形式で返却します。
+
 */
 trait Connection{
 

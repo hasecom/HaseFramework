@@ -9,6 +9,7 @@ class welcomeController extends Controller{
      
       $a = DB::table("user")->select()->get();
       var_dump($a);
+
         return $this->View("welcome",$mdl);
     }
 }

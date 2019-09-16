@@ -11,6 +11,7 @@ use \PDO;
 *  ・DB_USERNAME
 *  ・PDO_DSN
 */
+
 trait Set{
     private static $DB_PASSWORD;
     private static $DB_USERNAME;
@@ -23,6 +24,7 @@ trait Set{
         self::$PDO_DSN = Config::get("PDO_DSN");
         self::$pdo = new PDO(self::$PDO_DSN,self::$DB_USERNAME,self::$DB_PASSWORD);
         self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
     }
 }
 ?>

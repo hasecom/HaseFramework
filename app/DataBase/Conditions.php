@@ -1,6 +1,7 @@
 <?php
 namespace App\DataBase;
 
+
 /**
 * sqlの作成クラス(以下二つ)
 * Conditionsクラス
@@ -8,6 +9,8 @@ namespace App\DataBase;
 *
 * 呼び出しメソッドによって作成されるsql文が異なります。
 */
+
+
 class Conditions  {
     private $table;
     private $sql;
@@ -23,6 +26,7 @@ class Conditions  {
             $this->sql= "SELECT $need FROM {$this->table}";
             return (new Request($this->sql));
         }
+
     }
     public  function update(){
         return "a";
@@ -36,6 +40,7 @@ class Conditions  {
 
 }
 class Request extends DB {
+
     protected $param;
     protected $sql_;
     function __construct($sql,$param = null){
