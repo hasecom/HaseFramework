@@ -28,7 +28,13 @@ class Conditions  {
         }
 
     }
-    public  function update(){
+    // updateは変更を許すカラム名と変更したい値を入力します。
+    public  function update($reqArr){
+    $length = count($reqArr);
+    
+    $this->sql = "UPDATE {$this->table} SET";
+    return (new Request($this->sql));
+    
         return "a";
     }
     public  function insert(){
