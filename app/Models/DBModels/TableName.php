@@ -1,8 +1,8 @@
 <?php
-class TableName(){
-   $table = "table_name";
+class TableName{
+   private $table = "table_name";
    
-   $column = "column";
+   private $column = "column";
    
    const DEFAULT = 
    [

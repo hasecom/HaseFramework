@@ -1,4 +1,16 @@
 <?php 
+/**
+ * リクエストされたパスの値を取得
+ *
+ * クラスの詳細
+ * 出来るだけ細かく書いたほうがよいが、詳細な説明は各メソッドに任せる。
+ * 全体での共通ルールとか仕様を書く。
+ *
+ * @author 長谷川 拓磨
+ * @category リクエストされたパスを取得して返す
+ * @package Route
+ */
+
 namespace Routes;
     ///　<summary>
     /// URLルーティング
@@ -10,6 +22,17 @@ namespace Routes;
         {
             $this->DOMAIN = $domain;
         }
+
+        /**
+        * リクエストされたパスを取得
+        *
+        * ドメインとリクエストURLを比較。
+        * その後、ドメインとリクエストの差分を取得して
+        * それをリクエストとしている
+        *
+        * @return string $Request リクエストのパス
+        * @see getRequestURI()
+        */
         public function getRequestURI(){
             /// $RequestUri : リクエストのあるURI
             /// SplitDomain : 自身のドメイン
@@ -36,4 +59,3 @@ namespace Routes;
         }
 
     }
-?>

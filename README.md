@@ -168,3 +168,81 @@ class WelcomeController extends Controller{
 output: 1
 ```
 
+---
+## ENV
+環境変数は、「HASEFRAMEWORK」直下にある
+".env.example"を".env"に変更して記述をしてください。
+
+* .env 
+
+```
+DOMAIN=example
+DB_USERNAME=example
+DB_PASSWORD=example
+PDO_DSN=example
+```
+
+記述方法は上記の通りです。
+上記の環境変数は、このフレームワークを使用する上で
+必須の値です。指定をしてください。
+
+
+
+* Config.php
+
+```
+class Config{
+    public static function get($val){
+        return  [
+            "DOMAIN"=>getenv("DOMAIN"),
+             "DB_USERNAME"=>getenv("DB_USERNAME"),
+             "DB_PASSWORD"=>getenv("DB_PASSWORD"),
+             "PDO_DSN" =>getenv("PDO_DSN"),
+        ][$val];
+    }
+}
+```
+
+".env"ファイルに記述後は、
+appフォルダ直下にあるConfig.phpファイルに
+環境変数を定義をしてください。
+
+
+
+---
+## DataBase
+
+コントローラから簡単に接続が可能です。
+PDOパラメータによるバインディングを使用しています。
+
+#### ・select
+
+```
+DB::table("テーブル名")->select()->get();
+```
+
+テーブル内の全てのカラムを返します。
+
+
+```
+DB::table("テーブル名")->select(”id”)->get();
+```
+
+このように記述をすれば、"id"カラムのみ取得することが可能です。
+
+#### ・where
+
+```
+DB::table("テーブル名")->select()->where("id","2");
+```
+
+このように記述をすれば、"id=2"のデータのみを取得することが可能です。
+
+```
+DB::table("テーブル名")->select()->where("id","<","2");
+```
+
+"<,<=,>,>="を使用する場合、
+whereメソッドの第二引数に指定してください。
+"="は、省略しているだけなので第二引数に指定しても
+問題はありません。

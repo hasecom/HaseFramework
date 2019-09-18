@@ -1,29 +1,15 @@
 <?php
-namespace App\DataBase\Options;
-
-class Options()
-{
+namespace App\DataBase;
+use App\DataBase\Conditions;
+trait Options {
     protected $table;
     protected $column=[];
-    
-    public function Select($reqArr){
-    // $request = 
-    // $params = [':user_name' =>             'foobear', ':user_id' => 1001];
-    }
-    
-    public function Where(){
-    
-    }
-    public function Update(){
-    
-    }
-    public function Insert(){
-    
-    }
-    public function Delete(){
-    
-    }
-    
-    
+
+    public static function table($table){
+
+        return (new Conditions($table));
+    }           
+
 }
+
 ?>
