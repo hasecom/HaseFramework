@@ -29,13 +29,23 @@ class Conditions  {
 
     }
     // updateは変更を許すカラム名と変更したい値を入力します。
-    public  function update($reqArr){
-    $length = count($reqArr);
-    
-    $this->sql = "UPDATE {$this->table} SET";
-    return (new Request($this->sql));
-    
-        return "a";
+    public function update($req,$subVal = null){
+    $sql = "UPDATE {$this->table} SET ";
+    if(gettype($req) != "array" && $subVal != null){
+        $sql.= "{$req} = :{$req}";
+        echo "aab";
+    }else{
+        $length = count($req);
+        for($i = 0; $i < $length; $i++){
+            $sql.= array_keys($req)[$i] ."= :".array_keys($req)[$i];
+            if(1 < $length && $i + 1 < $length){
+                $sql.=', ';
+            }
+        }
+    }
+   // $this->sql = $sql;
+   // return (new Request($this->sql));
+        var_dump($sql);
     }
     public  function insert(){
         return "a";

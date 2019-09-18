@@ -6,7 +6,6 @@ trait Options {
     protected $column=[];
 
     public static function table($table){
-
         return (new Conditions($table));
     }           
 
