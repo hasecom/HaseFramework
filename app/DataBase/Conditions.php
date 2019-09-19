@@ -33,7 +33,6 @@ class Conditions  {
     $sql = "UPDATE {$this->table} SET ";
     if(gettype($req) != "array" && $subVal != null){
         $sql.= "{$req} = :{$req}";
-        echo "aab";
     }else{
         $length = count($req);
         for($i = 0; $i < $length; $i++){
