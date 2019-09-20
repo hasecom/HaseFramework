@@ -23,9 +23,12 @@ trait Connection{
         $prepared = $connection->prepare("$sql");
         // param付き (where句)
         if($param != null){
-         $prepared->bindParam($param["key"], $param["value"]);
+            foreach($param as $val){
+                $prepared->bindParam($val["key"],$val["value"]);
+         };
         }   
-        $prepared->execute();
+        $isSuccess = $prepared->execute();
+        if(explode(" ",$sql)[0] != "SELECT") return $isSuccess;
         $result = $prepared->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }

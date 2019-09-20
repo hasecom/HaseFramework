@@ -47,23 +47,33 @@ class Conditions  {
             if(1 < $length && $i + 1 < $length){
                 $sql.=', ';
             }
-            $param .= [
+            $param[$i] = 
                 [
-                "key"=>":".array_keys($req)[$i],
-                "value"=>$req[array_keys($req)[1]]
-                ]
-            ];
+                    "key"=>":".array_keys($req)[$i],
+                    "value"=>$req[array_keys($req)[$i]]
+                ];
         }
         $this->param = $param;
     }
    $this->sql = $sql;
    return (new Request($this->sql,$this->param));
     }
-    public  function insert(){
-        return "a";
+    public  function insert($need = null){
+        if( $need == null){
+            $this->sql = "INSERT INTO {$this->table} ";
+        }else{
+            $this->param = $need;
+            $column = "";
+            foreach($need as $key=> $val){
+              $column .= $val.(count($need) -1 <= $key ? "":",");
+            }
+            $this->sql= "INSERT INTO  {$this->table}({$column}) ";
+        }
+        return (new Request($this->sql,$this->param));
     }
     public  function delete(){
-        return "a";
+        $this->sql = "DELETE FROM {$this->table}";
+        return (new Request($this->sql));
     }
 
 }
@@ -100,15 +110,34 @@ class Request extends DB {
             "key"=>":"."$column",
             "value"=>"$value"
         ];
-        var_dump($this->param);
-        $this->param = $params;
+        if($this->param != null){
+            $this->param[count($this->param)]= $params;
+        }else{
+            $this->param[0] = $params;
+        }
         $this->sql_ .=" WHERE {$column} {$sign} :{$column};";
-
-       // return parent::connection($this->sql_,$this->param);
+        return parent::connection($this->sql_,$this->param);
     }
 
-    public function value(){
-        return "bb";
+    public function value($value){
+        $param;
+        $vals = "";
+        if($this->param != null){
+            foreach($this->param as $key=> $val){
+                $vals .= ":".$val.(count($this->param) -1 <= $key ? "":", ");
+                $param[$key] = [":".$val , $value[$key]];
+              }
+        }else{
+            foreach($value as $key => $val){
+                $rnd = mt_rand();
+                $vals .= ":".$rnd.(count($value) -1 <= $key ? "":", ");
+                $param[$key] = [":".$rnd , $val];
+              }
+        }
+        $this->param = $param;
+        $this->sql_ . "VALUE({$vals})";
+        var_dump($this->param);
+        //return parent::connection($this->sql_,$this->param);
     }
 }
 ?>
