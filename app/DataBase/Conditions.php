@@ -14,6 +14,7 @@ namespace App\DataBase;
 class Conditions  {
     private $table;
     private $sql;
+    private $param;
     function __construct($table)
     {
         $this->table = $table;
@@ -21,11 +22,10 @@ class Conditions  {
     public  function select($need = null){
         if( $need == null){
             $this->sql = "SELECT * FROM {$this->table}";
-            return (new Request($this->sql));
         }else{
             $this->sql= "SELECT $need FROM {$this->table}";
-            return (new Request($this->sql));
         }
+        return (new Request($this->sql));
 
     }
     // updateは変更を許すカラム名と変更したい値を入力します。
@@ -33,18 +33,31 @@ class Conditions  {
     $sql = "UPDATE {$this->table} SET ";
     if(gettype($req) != "array" && $subVal != null){
         $sql.= "{$req} = :{$req}";
+        $this->param = [
+            [
+            "key"=>":"."$req",
+            "value"=>"$subVal"
+            ]
+        ];
     }else{
         $length = count($req);
+        $param = [];
         for($i = 0; $i < $length; $i++){
             $sql.= array_keys($req)[$i] ."= :".array_keys($req)[$i];
             if(1 < $length && $i + 1 < $length){
                 $sql.=', ';
             }
+            $param .= [
+                [
+                "key"=>":".array_keys($req)[$i],
+                "value"=>$req[array_keys($req)[1]]
+                ]
+            ];
         }
+        $this->param = $param;
     }
-   // $this->sql = $sql;
-   // return (new Request($this->sql));
-        var_dump($sql);
+   $this->sql = $sql;
+   return (new Request($this->sql,$this->param));
     }
     public  function insert(){
         return "a";
@@ -87,10 +100,11 @@ class Request extends DB {
             "key"=>":"."$column",
             "value"=>"$value"
         ];
+        var_dump($this->param);
         $this->param = $params;
         $this->sql_ .=" WHERE {$column} {$sign} :{$column};";
 
-        return parent::connection($this->sql_,$this->param);
+       // return parent::connection($this->sql_,$this->param);
     }
 
     public function value(){

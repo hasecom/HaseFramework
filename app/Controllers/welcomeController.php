@@ -7,7 +7,7 @@ class welcomeController extends Controller{
         $mdl = new WelcomeModel();
         $mdl->Title = "a";
      
-      $a = DB::table("user")->update('aa','value');
+      $a = DB::table("user")->update(['aa'=>'value',"bb"=>"cc"])->where("aa","bb");
       var_dump($a);
 
         return $this->View("welcome",$mdl);
