@@ -137,6 +137,7 @@ class Request extends DB {
         $this->param = $param;
         $this->sql_ . "VALUE({$vals})";
         var_dump($this->param);
+        // TODO
         //return parent::connection($this->sql_,$this->param);
     }
 }
