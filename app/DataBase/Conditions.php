@@ -125,19 +125,18 @@ class Request extends DB {
         if($this->param != null){
             foreach($this->param as $key=> $val){
                 $vals .= ":".$val.(count($this->param) -1 <= $key ? "":", ");
-                $param[$key] = [":".$val , $value[$key]];
+                $param[$key] = ["key"=>":".$val ,"value"=>$value[$key]];
               }
         }else{
             foreach($value as $key => $val){
                 $rnd = mt_rand();
                 $vals .= ":".$rnd.(count($value) -1 <= $key ? "":", ");
-                $param[$key] = [":".$rnd , $val];
+                $param[$key] = ["key"=>":".$rnd ,"value"=>$val];
               }
         }
         $this->param = $param;
-        $this->sql_ . "VALUE({$vals})";
-        var_dump($this->param);
-        //return parent::connection($this->sql_,$this->param);
+        $this->sql_ = $this->sql_ . "VALUE({$vals})";
+        return parent::connection($this->sql_,$this->param);
     }
 }
 ?>

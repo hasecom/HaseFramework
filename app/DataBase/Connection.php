@@ -25,7 +25,7 @@ trait Connection{
         if($param != null){
             foreach($param as $val){
                 $prepared->bindParam($val["key"],$val["value"]);
-         };
+            };
         }   
         $isSuccess = $prepared->execute();
         if(explode(" ",$sql)[0] != "SELECT") return $isSuccess;

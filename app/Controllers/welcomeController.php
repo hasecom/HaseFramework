@@ -10,8 +10,8 @@ class welcomeController extends Controller{
       //$a = DB::table("user")->update(["user_id"=>"test","access_token"=>"bb"])->where("id","2");
      // $a = DB::table("user")->select()->where("id","1");
      //$a = DB::table("tweet")->delete()->where("id","53");
-     $a = DB::table("tweet")->insert()->value(["tr","ah","g"]);
-      var_dump($a);
+     //$a = DB::table("user")->insert(['user_id','pass','access_token','access_token_secret'])->value(['aa','nn','cc','dd']);
+    //  var_dump($a);
 
         return $this->View("welcome",$mdl);
     }
