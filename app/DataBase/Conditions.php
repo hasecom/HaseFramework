@@ -1,12 +1,17 @@
 <?php
 namespace App\DataBase;
 use App\DataBase\Request;
+
 /**
 * sqlの作成クラス(以下二つ)
 * Conditionsクラス
 * Requestクラス
 *
-* 呼び出しメソッドによって作成されるsql文が異なります。
+*呼び出しメソッドによって作成されるsql文が異なります。
+* @param  $table リクエストするテーブル名
+* @param  $sql リクエストするsql文
+* @param  $param 条件付きでsqlにリクエストする場合のバインドパラメータ配列
+* 
 */
 
 class Conditions  {

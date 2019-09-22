@@ -1,6 +1,15 @@
 <?php 
 namespace App;
 
+/**
+* 環境変数クラス。
+*
+* .envファイルにある値を取りまとめています。
+*
+* @param $val リクエストする環境変数のキー
+* @return 環境変数
+*/
+
 class Config{
     public static function get($val){
         return  [

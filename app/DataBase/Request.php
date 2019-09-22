@@ -1,5 +1,16 @@
 <?php 
 namespace App\DataBase;
+
+/**
+* SQL文作成クラス。
+*
+* SQL文の条件句やbindParam値をConnectionクラスに渡します。
+*
+* @param  $sql_ リクエストするsql文
+* @param  $param パラメータ名とバインドする値の配列
+* @return connectionで接続してリクエストした結果を返します。
+*/
+
 class Request extends DB {
 
     protected $param;

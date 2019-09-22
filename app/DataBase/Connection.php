@@ -1,6 +1,7 @@
 <?php 
 namespace App\DataBase;
 use \PDO;
+
 /**
 * DataBaseに接続し、値を取得・更新・削除します。
 *
@@ -10,8 +11,8 @@ use \PDO;
 * @param  リクエストするsql文
 * @param  whereを使用する際のbindParam (デフォルト値 = null)
 * @return データベースの情報をJSON形式で返却します。
-
 */
+
 trait Connection{
 
     protected static function connection($sql, $param = null){
