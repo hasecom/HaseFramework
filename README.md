@@ -2,6 +2,19 @@
 
 ## 名前 : HaseFramework
 ---
+## 事前準備
+
+・ HASEFRAMEWORK直下で、
+Composerをインストールしてください。
+
+```
+composer install
+```
+
+・ 「HASEFRAMEWORK」直下にある
+".env.example"を".env"に変更して記述をしてください。
+
+---
 ## web.php
 
 Web.phpは、URLルーティン設定を行うファイルです。
@@ -311,3 +324,50 @@ SQLインジェクションの原因となります。
 ```
 DB::sql()->bind([])
 ```
+
+---
+## Session
+
+Sessionをセット・取得・存在確認するには
+下記を宣言してください。
+
+```
+use App\Auth\Session;
+```
+
+#### ・set
+
+```
+Session::set("セッションキー","値")
+```
+
+sessionに値を加える場合
+setのメソッドを使用します。
+
+セッションにまとめて複数の値を加える場合
+下記のキーを使用します。
+
+```
+Session::set(["キー"=>"値","キー"=>"値"])
+```
+
+#### ・get
+
+```
+Session::get("セッションキー")
+```
+
+sessionの値を取得するには、
+getのメソッドを使用します。
+
+#### ・exist
+
+```
+Session::exist("セッションキー")
+```
+
+sessionの値の存在の有を確認するには、
+existのメソッドを使用します。
+
+存在する場合はtrue
+存在しない場合、falseを返します。

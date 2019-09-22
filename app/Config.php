@@ -17,6 +17,7 @@ class Config{
              "DB_USERNAME"=>getenv("DB_USERNAME"),
              "DB_PASSWORD"=>getenv("DB_PASSWORD"),
              "PDO_DSN" =>getenv("PDO_DSN"),
+             "SESSION_SALT_KEY"=>getenv("SESSION_SALT_KEY")
         ][$val];
     }
 }
