@@ -15,6 +15,14 @@
     <div class="title">
         こんにちは,「HaseFramework」です。
     </div>
-
+    <form method="post">
+        <input type="text" name="names" value="">
+        <input type="hidden" name="token" value="<?php echo $WelcomeModel->CSRF_TOKEN; ?>">
+        <input type="submit" value="送信">
+    </form>
+    <?php 
+    var_dump($_SERVER['REQUEST_METHOD']); 
+    var_dump($WelcomeModel);
+    ?>
 </body>
 </html>
