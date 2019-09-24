@@ -22,20 +22,50 @@ Web.phpは、URLルーティン設定を行うファイルです。
 #### ・コード
 `route::get('welcome',welcomeController@Index');`
 
+`route::post('welcome',welcomeController@Post');`
+
 #### ・解説
 `route::get('パス名','コントローラ名@メソッド名')`
 
-* **パス名** 
+`route::post('パス名','コントローラ名@メソッド名')`
+
+* **パス名**
 あなたが指定したいパスを入力します。
 先頭に"\\"は必要ありません。
 
-* **コントローラー名** 
+* **コントローラー名**
 コントローラはルーティン設定されたページの処理を行います。
 入力値はコントローラクラス名と統一させてください。
 
-* **メソッド名** 
+* **メソッド名**
 メソッドは、あなたが指定したコントローラ内に存在するメソッド名を入力してください。
 "()"は必要ありません。
+
+
+
+* **CSRF対策(必須)**
+
+・コード
+
+```
+<input type="hidden" name="token" value="<?php echo $WelcomeModel->CSRF_TOKEN; ?>">
+```
+
+
+・解説
+
+```
+<input type="hidden" name="token" value="<?php echo $モデル名->CSRF_TOKEN; ?>">
+```
+
+必ず、tokenをhiddenで
+nameは'token'にして送信してください。
+
+
+* **注意**
+フォームからPOSTでデータを送信するときは、
+POSTのメソッドの処理を行いますが、
+リロードした場合、GETに変更します。
 
 ---
 ## Controller
@@ -49,6 +79,11 @@ class welcomeController extends Controller{
     }
 }
 ```
+
+※フォーム処理を行うページでは、必ず、
+モデルをビューに返してください。
+CSRF_TOKENをビューで受け取る必要があるからです。
+
 #### ・解説
 ```
 class コントローラ名 extends Controller{

@@ -8,5 +8,5 @@ use Routes\route;
     /// 例)https://example.com/welcome -> route::get('welcome',welcomeController@Index)
     /// </summary>
     route::get('welcome','welcomeController@Index');
-    route::post('welcome','welcomeController@Test');
+    route::post('welcome','welcomeController@Post');
 ?>
